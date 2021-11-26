@@ -26,7 +26,7 @@ function updateDisplay() {
     CPSD.innerHTML = `CPS: ${thousandsSeparators(copese)}`
     PL.innerHTML = `<ul id="pl" class="pl my-2">
     <h2>Stats</h2>
-    <li>Cookie glove power: ${thousandsSeparatorsglovePower.toFixed(1)}</li>
+    <li>Cookie glove power: ${thousandsSeparators(glovePower.toFixed(1))}</li>
     <li>Cookie slaves: ${thousandsSeparators(incomeSources.slaves)}</li>
     <li>Cookie summoners: ${thousandsSeparators(incomeSources.summoners)}</li>
     <li>Cookie robots: ${thousandsSeparators(incomeSources.robot)}</li>
