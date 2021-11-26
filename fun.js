@@ -17,11 +17,11 @@ let glovePower = 1;
 let copese;
 
 function updateDisplay() {
-    NUM.innerHTML = `Cookies: ${Math.round(cookies)}`
-    CPSD.innerHTML = `CPS: ${copese}`
+    NUM.innerHTML = `Cookies: ${thousandsSeparators(Math.round(cookies))}`
+    CPSD.innerHTML = `CPS: ${thousandsSeparators(copese)}`
     PL.innerHTML = `<ul id="pl" class="pl my-2">
     <h2>Stats</h2>
-    <li>Cookie glove power: ${glovePower.toFixed(1)}</li>
+    <li>Cookie glove power: ${thousandsSeparators(glovePower.toFixed(1))}</li>
     <li>Cookie slaves: ${incomeSources.slaves}</li>
     <li>Cookie summoners: ${incomeSources.summoners}</li>
     <li>Cookie robots: ${incomeSources.robot}</li>
@@ -29,18 +29,23 @@ function updateDisplay() {
     <li>Cookie volcanoes: ${incomeSources.volcanoes}</li>
     <li>Cookie gods: ${incomeSources.gods}</li>
     <br>
-    <li>Cookies hand baked: ${Math.round(cookiesHandBaked)}</li>
+    <li>Cookies hand baked: ${thousandsSeparators(Math.round(cookiesHandBaked))}</li>
     </ul>`
 
-    GLOVEPRICE.innerHTML = `Cookie glove : ${Math.round(prices.gloves)} C`
-    SLAVEPRICE.innerHTML = ` Cookie slave: ${Math.round(prices.slaves)} C`
-    SUMMONERPRICE.innerHTML = ` Cookie summoner: ${Math.round(prices.summoners)} C`
-    ROBOTPRICE.innerHTML = ` Cookie robot: ${Math.round(prices.robot)} C`
-    FACTORYPRICE.innerHTML = ` Cookie factory: ${Math.round(prices.factories)} C`
-    VOLCANOPRICE.innerHTML = ` Cookie volcano: ${Math.round(prices.volcanoes)} C`
-    GODPRICE.innerHTML = ` Cookie god: ${Math.round(prices.gods)} C`
+    GLOVEPRICE.innerHTML = `Cookie glove : ${thousandsSeparators(Math.round(prices.gloves))} C`
+    SLAVEPRICE.innerHTML = ` Cookie slave: ${thousandsSeparators(Math.round(prices.slaves))} C`
+    SUMMONERPRICE.innerHTML = ` Cookie summoner: ${thousandsSeparators(Math.round(prices.summoners))} C`
+    ROBOTPRICE.innerHTML = ` Cookie robot: ${thousandsSeparators(Math.round(prices.robot))} C`
+    FACTORYPRICE.innerHTML = ` Cookie factory: ${thousandsSeparators(Math.round(prices.factories))} C`
+    VOLCANOPRICE.innerHTML = ` Cookie volcano: ${thousandsSeparators(Math.round(prices.volcanoes))} C`
+    GODPRICE.innerHTML = ` Cookie god: ${thousandsSeparators(Math.round(prices.gods))} C`
 }
 
+function thousandsSeparators(num) {
+    let num_parts = num.toString().split(".");
+    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return num_parts.join(".");
+}
 
 let cookies = 0;
 let cookiesHandBaked = 0;
