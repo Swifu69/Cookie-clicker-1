@@ -75,7 +75,7 @@ let cps = {
     robot: 100,
     factories: 1000,
     volcanoes: 10000,
-    gods: 100000
+    gods: 200000
 };
 
 setInterval(() =>{
