@@ -20,7 +20,7 @@ function updateDisplay() {
     NUM.innerHTML = `Cookies: ${Math.round(cookies)}`
     CPSD.innerHTML = `CPS: ${copese}`
     PL.innerHTML = `<ul id="pl" class="pl my-2">
-    <h2>Purchases</h2>
+    <h2>Stats</h2>
     <li>Cookie glove power: ${glovePower.toFixed(1)}</li>
     <li>Cookie slaves: ${incomeSources.slaves}</li>
     <li>Cookie summoners: ${incomeSources.summoners}</li>
@@ -28,6 +28,8 @@ function updateDisplay() {
     <li>Cookie factories: ${incomeSources.factories}</li>
     <li>Cookie volcanoes: ${incomeSources.volcanoes}</li>
     <li>Cookie gods: ${incomeSources.gods}</li>
+    <br>
+    <li>Cookies hand baked: ${Math.round(cookiesHandBaked)}</li>
     </ul>`
 
     GLOVEPRICE.innerHTML = `Cookie glove : ${Math.round(prices.gloves)} C`
@@ -41,6 +43,7 @@ function updateDisplay() {
 
 
 let cookies = 0;
+let cookiesHandBaked = 0;
 
 let incomeSources = {
     slaves: 0,
@@ -89,14 +92,15 @@ setInterval(() =>{
 
 COK.addEventListener("click", (e) => {
     cookies += glovePower
+    cookiesHandBaked += glovePower
     updateDisplay();
 });
 
 function buyGloves() {
     if (cookies >= prices.gloves ) {
         cookies -=prices.gloves
-        prices.gloves *=10
-        glovePower *=1.7
+        prices.gloves *=11
+        glovePower *=1.9
     } else {
         console.log("You dont have enough cookies");
     }
