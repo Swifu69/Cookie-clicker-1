@@ -10,7 +10,7 @@ const SUMMONERPRICE = document.getElementById("bsu")
 const ROBOTPRICE = document.getElementById("bro")
 const FACTORYPRICE = document.getElementById("bfa")
 const VOLCANOPRICE = document.getElementById("bvo")
-
+const GODPRICE = document.getElementById("bgo")
 
 let glovePower = 1;
   
@@ -27,6 +27,7 @@ function updateDisplay() {
     <li>Cookie robots: ${incomeSources.robot}</li>
     <li>Cookie factories: ${incomeSources.factories}</li>
     <li>Cookie volcanoes: ${incomeSources.volcanoes}</li>
+    <li>Cookie gods: ${incomeSources.gods}</li>
     </ul>`
 
     GLOVEPRICE.innerHTML = `Cookie glove : ${Math.round(prices.gloves)} C`
@@ -35,6 +36,7 @@ function updateDisplay() {
     ROBOTPRICE.innerHTML = ` Cookie robot: ${Math.round(prices.robot)} C`
     FACTORYPRICE.innerHTML = ` Cookie factory: ${Math.round(prices.factories)} C`
     VOLCANOPRICE.innerHTML = ` Cookie volcano: ${Math.round(prices.volcanoes)} C`
+    GODPRICE.innerHTML = ` Cookie volcano: ${Math.round(prices.gods)} C`
 }
 
 
@@ -45,7 +47,8 @@ let incomeSources = {
     summoners: 0,
     robot: 0,
     factories: 0,
-    volcanoes: 0
+    volcanoes: 0,
+    gods:0
 };
 
 let prices = {
@@ -54,7 +57,8 @@ let prices = {
     summoners: 600,
     robot: 7500,
     factories: 85000,
-    volcanoes: 1000000
+    volcanoes: 1000000,
+    gods: 350000000
 }
 
 let cps = {
@@ -62,7 +66,8 @@ let cps = {
     summoners: 10,
     robot: 100,
     factories: 1000,
-    volcanoes: 10000
+    volcanoes: 10000,
+    gods: 100000
 };
 
 setInterval(() =>{
@@ -71,12 +76,14 @@ setInterval(() =>{
     cookies += (incomeSources.robot * cps.robot)/100; 
     cookies += (incomeSources.factories * cps.factories)/100; 
     cookies += (incomeSources.volcanoes * cps.volcanoes)/100; 
+    cookies += (incomeSources.gods * cps.gods)/100; 
 
-    copese = (incomeSources.slaves * cps.slaves) +
-        (incomeSources.summoners * cps.summoners) +
-        (incomeSources.robot * cps.robot) + 
-        (incomeSources.factories * cps.factories) +
-        (incomeSources.volcanoes * cps.volcanoes); 
+    copese= (incomeSources.slaves * cps.slaves) +
+            (incomeSources.summoners * cps.summoners) +
+            (incomeSources.robot * cps.robot) + 
+            (incomeSources.factories * cps.factories) +
+            (incomeSources.volcanoes * cps.volcanoes) +
+            (incomeSources.gods * cps.gods) 
     updateDisplay();
 },1000/100)
 
@@ -145,8 +152,17 @@ function buyVolcanoes() {
     }
     updateDisplay();
 }
-
-function gC(x) {
+function buyGods() {
+    if (cookies >= prices.gods ) {
+        cookies -=prices.gods
+        prices.gods *= 1.05
+        incomeSources.gods++
+    } else {
+        console.log("You dont have enough cookies");
+    }
+    updateDisplay();
+}
+function skitneCookies(x) {
     cookies +=  x;
     updateDisplay();
 }
