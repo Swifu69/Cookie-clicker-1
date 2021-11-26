@@ -174,5 +174,6 @@ function buyGods() {
 }
 function skitneCookies(x) {
     cookies +=  x;
+    console.log("Skitne cookies smaker ikke godt >:)");
     updateDisplay();
 }
