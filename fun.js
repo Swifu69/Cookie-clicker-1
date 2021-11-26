@@ -36,7 +36,7 @@ function updateDisplay() {
     ROBOTPRICE.innerHTML = ` Cookie robot: ${Math.round(prices.robot)} C`
     FACTORYPRICE.innerHTML = ` Cookie factory: ${Math.round(prices.factories)} C`
     VOLCANOPRICE.innerHTML = ` Cookie volcano: ${Math.round(prices.volcanoes)} C`
-    GODPRICE.innerHTML = ` Cookie gods: ${Math.round(prices.gods)} C`
+    GODPRICE.innerHTML = ` Cookie god: ${Math.round(prices.gods)} C`
 }
 
 
