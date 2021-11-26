@@ -16,6 +16,11 @@ let glovePower = 1;
   
 let copese;
 
+function thousandsSeparators(num) {
+    let num_parts = num.toString().split(".");
+    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return num_parts.join(".");
+}
 function updateDisplay() {
     NUM.innerHTML = `Cookies: ${thousandsSeparators(Math.round(cookies))}`
     CPSD.innerHTML = `CPS: ${thousandsSeparators(copese)}`
@@ -41,11 +46,7 @@ function updateDisplay() {
     GODPRICE.innerHTML = ` Cookie god: ${thousandsSeparators(Math.round(prices.gods))} C`
 }
 
-function thousandsSeparators(num) {
-    let num_parts = num.toString().split(".");
-    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return num_parts.join(".");
-}
+
 
 let cookies = 0;
 let cookiesHandBaked = 0;
