@@ -3,12 +3,17 @@ const NUM = document.getElementById("num")
 const PL = document.getElementById("pl")
 const CPSD = document.getElementById("cp")
 
+
+const GLOVEPRICE = document.getElementById("bgl")
 const SLAVEPRICE = document.getElementById("bsl")
 const SUMMONERPRICE = document.getElementById("bsu")
 const ROBOTPRICE = document.getElementById("bro")
 const FACTORYPRICE = document.getElementById("bfa")
 const VOLCANOPRICE = document.getElementById("bvo")
 
+
+let glovePower = 1;
+  
 let copese;
 
 function updateDisplay() {
@@ -16,6 +21,7 @@ function updateDisplay() {
     CPSD.innerHTML = `CPS: ${copese}`
     PL.innerHTML = `<ul id="pl" class="pl my-2">
     <h2>Purchases</h2>
+    <li>Cookie glove power: ${glovePower.toFixed(1)}</li>
     <li>Cookie slaves: ${incomeSources.slaves}</li>
     <li>Cookie summoners: ${incomeSources.summoners}</li>
     <li>Cookie robots: ${incomeSources.robot}</li>
@@ -23,11 +29,12 @@ function updateDisplay() {
     <li>Cookie volcanoes: ${incomeSources.volcanoes}</li>
     </ul>`
 
-    SLAVEPRICE.innerHTML = ` Buy cookie slave: ${Math.round(prices.slaves)}C`
-    SUMMONERPRICE.innerHTML = ` Buy cookie summoner: ${Math.round(prices.summoners)}C`
-    ROBOTPRICE.innerHTML = ` Buy cookie robot: ${Math.round(prices.robot)}C`
-    FACTORYPRICE.innerHTML = ` Buy cookie factory: ${Math.round(prices.factories)}C`
-    VOLCANOPRICE.innerHTML = ` Buy cookie volcano: ${Math.round(prices.volcanoes)}C`
+    GLOVEPRICE.innerHTML = `Cookie glove : ${Math.round(prices.gloves)} C`
+    SLAVEPRICE.innerHTML = ` Cookie slave: ${Math.round(prices.slaves)} C`
+    SUMMONERPRICE.innerHTML = ` Cookie summoner: ${Math.round(prices.summoners)} C`
+    ROBOTPRICE.innerHTML = ` Cookie robot: ${Math.round(prices.robot)} C`
+    FACTORYPRICE.innerHTML = ` Cookie factory: ${Math.round(prices.factories)} C`
+    VOLCANOPRICE.innerHTML = ` Cookie volcano: ${Math.round(prices.volcanoes)} C`
 }
 
 
@@ -42,6 +49,7 @@ let incomeSources = {
 };
 
 let prices = {
+    gloves: 5,
     slaves: 50,
     summoners: 600,
     robot: 7500,
@@ -73,10 +81,20 @@ setInterval(() =>{
 },1000/100)
 
 COK.addEventListener("click", (e) => {
-    cookies++
+    cookies += glovePower
     updateDisplay();
 });
 
+function buyGloves() {
+    if (cookies >= prices.gloves ) {
+        cookies -=prices.gloves
+        prices.gloves *=10
+        glovePower *=1.7
+    } else {
+        console.log("You dont have enough cookies");
+    }
+    updateDisplay();
+}
 function buySlaves() {
     if (cookies >= prices.slaves ) {
         cookies -=prices.slaves

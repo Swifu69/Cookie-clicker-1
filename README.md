@@ -1,2 +1,2 @@
 # Cookie clicker
- et spæll
+Coki kliker

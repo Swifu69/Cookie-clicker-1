@@ -9,29 +9,35 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-        <h3>v 1.1</h3>
+        <h3>v 1.2</h3>
         <h1 id="num">Cookies: 0</h1 >
         <h3 id="cp">CPS: 0</h3 >
-        <img  id="cok" class="img position-absolute start-50 translate-middle" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg00.deviantart.net%2F8765%2Fi%2F2018%2F151%2F1%2F9%2Fchocolate_chip_cookie_png_by_bunny_with_camera-dcd1uhh.png&f=1&nofb=1" height="200px" alt="">
+        <img  id="cok" draggable="false"class="img position-absolute start-50 translate-middle" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg00.deviantart.net%2F8765%2Fi%2F2018%2F151%2F1%2F9%2Fchocolate_chip_cookie_png_by_bunny_with_camera-dcd1uhh.png&f=1&nofb=1" height="200px" alt="">
         
     <nav class="my-5 navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <div id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a onclick="buySlaves()" id="bsl" class="btn text-light btn-lg btn-dark nav-link m-3">Buy cookie slave: 50C</a>
+                <a onclick="buyGloves()" id="bgl" class="btn text-light btn-lg btn-primary nav-link m-3">Cookie gloves: 5 C</a>
               </li>
               <li class="nav-item">
-                <a onclick="buySummoners()" id="bsu" class="btn text-light btn-lg btn-dark nav-link m-3">Buy cookie summoner: 500C</a>
+                <a onclick="buySlaves()" id="bsl" class="btn text-light btn-lg btn-dark nav-link m-3">Cookie slave: 50 C</a>
               </li>
               <li class="nav-item">
-                <a onclick="buyRobots()" id="bro" class="btn text-light btn-lg btn-dark nav-link m-3">Buy cookie robot: 5000C</a>
+                <a onclick="buySummoners()" id="bsu" class="btn text-light btn-lg btn-dark nav-link m-3">Cookie summoner: 500 C</a>
               </li>
               <li class="nav-item">
-                <a onclick="buyFactories()" id="bfa" class="btn text-light btn-lg btn-dark nav-link m-3">Buy cookie factory: 50000C</a>
+                <a onclick="buyRobots()" id="bro" class="btn text-light btn-lg btn-dark nav-link m-3">Cookie robot: 5000 C</a>
               </li>
               <li class="nav-item">
-                <a onclick="buyVolcanoes()" id="bvo" class="btn text-light btn-lg btn-dark nav-link m-3">Buy cookie volcano: 500000C</a>
+                <a onclick="buyFactories()" id="bfa" class="btn text-light btn-lg btn-dark nav-link m-3">Cookie factory: 50000 C</a>
+              </li>
+              <li class="nav-item">
+                <a onclick="buyVolcanoes()" id="bvo" class="btn text-light btn-lg btn-dark nav-link m-3">Cookie volcano: 500000 C</a>
+              </li>
+              <li class="nav-item">
+                <a onclick="buyGods()" id="bgo" class="btn text-light btn-lg btn-dark nav-link m-3">Cookie god: 350000000 C</a>
               </li>
             </ul>
           </div>
@@ -39,14 +45,16 @@
       </nav>
       <div>
           <ul id="pl" class="pl my-2">
-              <h2>Purchases</h2>
+              <h2>Purchases</h2> 
               <li>Cookie slaves: 0</li>
               <li>Cookie summoners: 0</li>
               <li>Cookie robots: 0</li>
               <li>Cookie factories: 0</li>
               <li>Cookie volcanoes: 0</li>
+              <li>Cookie gods: 0</li>
           </ul>
       </div>
+      <audio id="pop" src="pop.wav"></audio>
     <script src="fun.js"></script>
 </body>
 </html>
