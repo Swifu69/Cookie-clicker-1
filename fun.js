@@ -2,6 +2,13 @@ const COK = document.getElementById("cok")
 const NUM = document.getElementById("num")
 const PL = document.getElementById("pl")
 const CPSD = document.getElementById("cp")
+
+const SLAVEPRICE = document.getElementById("bsl")
+const SUMMONERPRICE = document.getElementById("bsu")
+const ROBOTPRICE = document.getElementById("bro")
+const FACTORYPRICE = document.getElementById("bfa")
+const VOLCANOPRICE = document.getElementById("bvo")
+
 let copese;
 
 function updateDisplay() {
@@ -15,7 +22,14 @@ function updateDisplay() {
     <li>Cookie factories: ${incomeSources.factories}</li>
     <li>Cookie volcanoes: ${incomeSources.volcanoes}</li>
     </ul>`
+
+    SLAVEPRICE.innerHTML = ` Buy cookie slave: ${Math.round(prices.slaves)}C`
+    SUMMONERPRICE.innerHTML = ` Buy cookie summoner: ${Math.round(prices.summoners)}C`
+    ROBOTPRICE.innerHTML = ` Buy cookie robot: ${Math.round(prices.robot)}C`
+    FACTORYPRICE.innerHTML = ` Buy cookie factory: ${Math.round(prices.factories)}C`
+    VOLCANOPRICE.innerHTML = ` Buy cookie volcano: ${Math.round(prices.volcanoes)}C`
 }
+
 
 let cookies = 0;
 
@@ -29,10 +43,10 @@ let incomeSources = {
 
 let prices = {
     slaves: 50,
-    summoners: 500,
-    robot: 5000,
-    factories: 50000,
-    volcanoes: 500000
+    summoners: 600,
+    robot: 7500,
+    factories: 85000,
+    volcanoes: 1000000
 }
 
 let cps = {
@@ -66,6 +80,7 @@ COK.addEventListener("click", (e) => {
 function buySlaves() {
     if (cookies >= prices.slaves ) {
         cookies -=prices.slaves
+        prices.slaves *= 1.05
         incomeSources.slaves++
     } else {
         console.log("You dont have enough cookies");
@@ -75,6 +90,7 @@ function buySlaves() {
 function buySummoners() {
     if (cookies >= prices.summoners ) {
         cookies -=prices.summoners
+        prices.summoners *= 1.05
         incomeSources.summoners++
     } else {
         console.log("You dont have enough cookies");
@@ -84,6 +100,7 @@ function buySummoners() {
 function buyRobots() {
     if (cookies >= prices.robot ) {
         cookies -=prices.robot
+        prices.robot *= 1.05
         incomeSources.robot++
     } else {
         console.log("You dont have enough cookies");
@@ -93,6 +110,7 @@ function buyRobots() {
 function buyFactories() {
     if (cookies >= prices.factories ) {
         cookies -=prices.factories
+        prices.factories *= 1.05
         incomeSources.factories++
     } else {
         console.log("You dont have enough cookies");
@@ -102,6 +120,7 @@ function buyFactories() {
 function buyVolcanoes() {
     if (cookies >= prices.volcanoes ) {
         cookies -=prices.volcanoes
+        prices.volcanoes *= 1.05
         incomeSources.volcanoes++
     } else {
         console.log("You dont have enough cookies");
